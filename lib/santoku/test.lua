@@ -24,14 +24,15 @@ M.test = function (tag, fn)
   assert(compat.hasmeta.call(fn))
   assert(compat.istype.string(tag))
   tags:append(tag)
-  local trace, ret = tup(xpcall(fn, function (...)
+  local ret = tup(xpcall(fn, function (...)
     return debug.traceback(), ...
   end))
-  if not ret() then
+  local ok, trace = ret()
+  if not ok then
     print()
     print(tup.concat(tup.interleave(": ", tags:unpack())))
     print()
-    print(tup.sel(2, ret()))
+    print(tup.sel(3, ret()))
     print()
     print(trace)
     print()
