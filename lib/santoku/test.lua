@@ -14,10 +14,6 @@ M.MT = {
   end
 }
 
-M.MT_TEST = {
-  __index = _G
-}
-
 local tags = vec()
 
 M.test = function (tag, fn)
