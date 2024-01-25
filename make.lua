@@ -11,6 +11,8 @@ local env = {
     "santoku >= 0.0.162-1",
   },
 
+  test = {}
+
 }
 
 env.homepage = "https://github.com/treadwelllane/lua-" .. env.name
